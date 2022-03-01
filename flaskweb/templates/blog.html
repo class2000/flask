@@ -1,0 +1,56 @@
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light" >
+  <div class="bg-image img-fluid p-5 text-center shadow-1-strong rounded mb-5 text-white"
+   alt="Responsive image" style="background-image: url('https://image.freepik.com/free-vector/simple-christmas-background-black-trees-pattern-cute-doodle-design-vector_53876-151501.jpg');">
+    <div class="col-md-5 p-lg-5 mx-auto my-5 card" style="max-width: fit-content;">
+      <h1 class="card-title display-4 font-weight-normal">Tree Collection</h1>
+      <p class="card-text lead font-weight-normal text-dark ">We plant them, You see them grow, Farming communities benefit from them.
+        CarbonRoot means reforestation with a high social impact: we plant trees in different areas of the world to fight the climate crisis and support the development of entire farming communities.</p>
+    </div>
+    <div class="product-device box-shadow d-none d-md-block"></div>
+    <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
+  </div>
+</div>
+
+
+
+{% extends "layout.html" %}
+{% block content %}
+{% for product in products.items %}
+<div class="container-fluid" style="width: max-content">
+  <div class="card mb-3 text-center " style="width: 1000px;">
+    <div class="row no-gutters" style="width:800px">
+      <div class="col-lg-4">
+        <img src="{{url_for('static' , filename ='product_pics/' + product.image_file)}}" class="card-img" alt="...">
+        <div class="row justify-content-center">
+          <input type="range" class="form-range py-lg-2" min="2" max="210" step="1" value="{{product.co2}}" id="customRange3">
+        </div>
+        
+        <div class="row justify-content-center">
+          <p1>{{product.co2}} kg of CO2 per year</p1>
+        </div>
+      </div>
+      
+      <div class="col-lg-8" style="padding-left: 1cm;">
+        <div class="card-body">
+          <h5 class="card-title">{{product.name}}</h5>
+          <p class="card-text">{{product.description}}</p>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+  {% endfor %}
+<div class="w-100"></div>
+  {% for page_num in products.iter_pages(left_edge=1 , right_edge=1, left_current=1 , right_current=2) %}
+    {% if page_num %}
+       {% if products.page == page_num %}
+         <a class="btn btn-info mb-4 " href="{{ url_for('main.blog', page=page_num)}}"> {{ page_num }} </a>
+        {% else %}  
+    <a class="btn btn-outline-info mb-4" href="{{ url_for('main.blog', page=page_num)}}"> {{ page_num }} </a>
+  {% endif %}
+{% else %}  
+  ...
+{% endif %}
+{% endfor %}
+{% endblock content %}

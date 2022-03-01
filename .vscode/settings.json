@@ -1,0 +1,8 @@
+{
+    "python.pythonPath": "/opt/anaconda3/bin/python"
+    ,"editor.fontSize": 18
+    ,
+
+    
+    "python.linting.pylintArgs": ["--load-plugins", "pylint_flask"]
+} 

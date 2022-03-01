@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content-section">
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">CO2 Transport</legend>
+            <div class="form-group">
+                {{ form.car_type.label(class="form-control-label")}}
+                {% if form.car_type.errors %}
+                {{ form.car_type(class="form-control form-control-lg is-invalid")}}
+                <div class="invalid-feedback">
+                    {% for error in form.car_type.errors %}
+                        <span> {{ error }} </span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{ form.car_type(class="form-control form-control-lg")}}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.car_km.label(class="form-control-label")}}
+                {% if form.car_km.errors %}
+                {{ form.car_km(class="form-control form-control-lg is-invalid")}}
+                <div class="invalid-feedback">
+                    {% for error in form.car_km.errors %}
+                        <span> {{ error }} </span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{ form.car_km(class="form-control form-control-lg")}}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.domestic_flight.label(class="form-control-label")}}
+                {% if form.domestic_flight.errors %}
+                {{ form.domestic_flight(class="form-control form-control-lg is-invalid")}}
+                <div class="invalid-feedback">
+                    {% for error in form.domestic_flight.errors %}
+                        <span> {{ error }} </span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{ form.domestic_flight(class="form-control form-control-lg")}}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.short_flight.label(class="form-control-label")}}
+                {% if form.short_flight.errors %}
+                {{ form.short_flight(class="form-control form-control-lg is-invalid")}}
+                <div class="invalid-feedback">
+                    {% for error in form.short_flight.errors %}
+                        <span> {{ error }} </span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{ form.short_flight(class="form-control form-control-lg")}}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.medium_flight.label(class="form-control-label")}}
+                {% if form.medium_flight.errors %}
+                {{ form.medium_flight(class="form-control form-control-lg is-invalid")}}
+                <div class="invalid-feedback">
+                    {% for error in form.medium_flight.errors %}
+                        <span> {{ error }} </span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{ form.medium_flight(class="form-control form-control-lg")}}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.long_flight.label(class="form-control-label")}}
+                {% if form.long_flight.errors %}
+                {{ form.long_flight(class="form-control form-control-lg is-invalid")}}
+                <div class="invalid-feedback">
+                    {% for error in form.long_flight.errors %}
+                        <span> {{ error }} </span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{ form.long_flight(class="form-control form-control-lg")}}
+                {% endif %}
+            </div>
+            
+        </fieldset>
+        <div class="form-group">
+            {{form.submit(class="btn btn-outline-info")}}
+        </div>
+    </form>
+</div>
+{% endblock content %}

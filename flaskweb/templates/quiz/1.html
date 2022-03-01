@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content-section">
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">CO2 Quizz</legend>
+            <div class="form-group">
+                {{ form.diet_type.label(class="form-control-label")}}
+                {% if form.diet_type.errors %}
+                {{ form.diet_type(class="form-control form-control-lg is-invalid")}}
+                <div class="invalid-feedback">
+                    {% for error in form.diet_type.errors %}
+                        <span> {{ error }} </span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{ form.diet_type(class="form-control form-control-lg")}}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.takeaway.label(class="form-control-label")}}
+                {% if form.takeaway.errors %}
+                {{ form.takeaway(class="form-control form-control-lg is-invalid")}}
+                <div class="invalid-feedback">
+                    {% for error in form.takeaway.errors %}
+                        <span> {{ error }} </span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{ form.takeaway(class="form-control form-control-lg")}}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.delivery.label(class="form-control-label")}}
+                {% if form.delivery.errors %}
+                {{ form.delivery(class="form-control form-control-lg is-invalid")}}
+                <div class="invalid-feedback">
+                    {% for error in form.delivery.errors %}
+                        <span> {{ error }} </span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{ form.delivery(class="form-control form-control-lg")}}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.waste.label(class="form-control-label")}}
+                {% if form.waste.errors %}
+                {{ form.waste(class="form-control form-control-lg is-invalid")}}
+                <div class="invalid-feedback">
+                    {% for error in form.waste.errors %}
+                        <span> {{ error }} </span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{ form.waste(class="form-control form-control-lg")}}
+                {% endif %}
+        </fieldset>
+        <div class="form-group">
+            {{form.submit(class="btn btn-outline-info")}}
+        </div>
+    </form>
+</div>
+{% endblock content %}
